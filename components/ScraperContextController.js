@@ -1,24 +1,17 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import { useScrape } from "../actions/useScrape";
 
 export const ScraperContext = React.createContext();
 
 let initialState = {};
 
-// Custom hook
-function useScrape() {
-  async function fetchData() {
-    let response = await axios.get("http://localhost:3000/");
-    console.log(response);
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+async function getData() {
+  const data = await useScrape("i", "caseyneistat");
+  console.log(data);
 }
 
 export const ContextController = ({ children }) => {
-  useScrape();
+  getData();
   return (
     <ScraperContext.Provider value={initialState}>
       {children}
