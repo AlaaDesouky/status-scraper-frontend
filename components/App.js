@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { ScraperContext } from "./ScraperContextController";
 
+import SearchInput from "./search/SearchInput";
+
 const App = () => {
   const [state, getData] = useContext(ScraperContext);
-  // getData("g", "AlaaDesouky");
   return (
-    <div>
-      <p>From App</p>
+    <div className="container">
+      <SearchInput />
       <p>{state.user}</p>
     </div>
   );
