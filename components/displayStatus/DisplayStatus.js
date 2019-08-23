@@ -8,14 +8,12 @@ const DisplayStatus = () => {
   const { user, userStatus } = state;
   return (
     <>
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">{user}</h5>
-          {userStatus.map((status, index) => {
-            const [currentStatus] = Object.entries(status);
-            return <StatusInfo key={index} currentStatus={currentStatus} />;
-          })}
-        </div>
+      <div className="card-body">
+        <h5 className="card-title">{user}</h5>
+        {userStatus.map((status, index) => {
+          const [currentStatus] = Object.entries(status);
+          return <StatusInfo key={index} currentStatus={currentStatus} />;
+        })}
       </div>
     </>
   );

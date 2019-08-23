@@ -4,20 +4,26 @@ import { useScrape } from "../actions/useScrape";
 export const ScraperContext = React.createContext();
 
 // Initializing state
-let initialState = { user: "", userStatus: [], error: "" };
+let initialState = { user: "", userStatus: [], isLoading: false, error: "" };
 
 export const ContextController = ({ children }) => {
   const [state, setState] = useState(initialState);
 
   const getData = async (route, userName) => {
+    setState({ ...initialState, isLoading: true });
     // get data from api
     const { user, status, message } = await useScrape(route, userName);
 
     // populate state
     if (message !== undefined) {
-      setState({ ...state, error: message });
+      setState({ ...initialState, error: message });
     } else {
-      setState({ ...state, user, userStatus: [status] });
+      setState({
+        ...initialState,
+        user,
+        userStatus: [status],
+        isLoading: false
+      });
     }
   };
 

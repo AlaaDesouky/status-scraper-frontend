@@ -27,8 +27,8 @@ const SearchInput = () => {
   // dynamic classes
   let classname =
     error.length > 0
-      ? "form-control is-invalid col-md-8 mb-3"
-      : "form-control col-md-8 mb-3";
+      ? "form-control is-invalid col-md-6 mb-3"
+      : "form-control col-md-6 mb-3";
 
   // handle submit
   const handleSubmit = e => {
@@ -46,53 +46,59 @@ const SearchInput = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="input-group">
+        <div className="input-group justify-content-center">
           <input
             onChange={handleInputChange}
             type="text"
             className={classname}
             placeholder="Enter username..."
           />
-          <input type="submit" value="Find User" className="col-md-2 mb-3" />
-          {error.length > 0 && <div className="invalid-feedback">{error}</div>}
+          <input
+            type="submit"
+            value="Find User"
+            className="col-md-2 mb-3 btn btn-light"
+          />
+          {error.length > 0 && <p className="invalid-feedback">{error}</p>}
         </div>
         {/* social media check */}
-        <SelectSocialMedia
-          onChange={handleMedialSelect}
-          id="twitter"
-          value="t"
-          lable="Twitter"
-        />
-        <SelectSocialMedia
-          onChange={handleMedialSelect}
-          id="instagram"
-          value="i"
-          lable="Instagram"
-        />
-        <SelectSocialMedia
-          onChange={handleMedialSelect}
-          id="reddit"
-          value="r"
-          lable="Reddit"
-        />
-        <SelectSocialMedia
-          onChange={handleMedialSelect}
-          id="github"
-          value="g"
-          lable="Github"
-        />
-        <SelectSocialMedia
-          onChange={handleMedialSelect}
-          id="behance"
-          value="b"
-          lable="Behance"
-        />
-        <SelectSocialMedia
-          onChange={handleMedialSelect}
-          id="quora"
-          value="q"
-          lable="Quora"
-        />
+        <div className="input-group justify-content-center">
+          <SelectSocialMedia
+            onChange={handleMedialSelect}
+            id="twitter"
+            value="t"
+            lable="Twitter"
+          />
+          <SelectSocialMedia
+            onChange={handleMedialSelect}
+            id="instagram"
+            value="i"
+            lable="Instagram"
+          />
+          <SelectSocialMedia
+            onChange={handleMedialSelect}
+            id="reddit"
+            value="r"
+            lable="Reddit"
+          />
+          <SelectSocialMedia
+            onChange={handleMedialSelect}
+            id="github"
+            value="g"
+            lable="Github"
+          />
+          <SelectSocialMedia
+            onChange={handleMedialSelect}
+            id="behance"
+            value="b"
+            lable="Behance"
+          />
+          <SelectSocialMedia
+            onChange={handleMedialSelect}
+            id="quora"
+            value="q"
+            lable="Quora"
+          />
+        </div>
       </form>
     </>
   );

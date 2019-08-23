@@ -8,8 +8,11 @@ const StatusInfo = ({ currentStatus }) => {
     <>
       <p className="card-subtitle mb-6 text-muted">{status}</p>
       <ul className="list-group list-group-flush">
-        {information.map(info => (
-          <li className="list-group-item d-flex justify-content-between align-items-center">
+        {information.map((info, index) => (
+          <li
+            key={index}
+            className="list-group-item d-flex justify-content-between align-items-center"
+          >
             <em>{info[0]}</em>
             <span className="badge badge-primary badge-pill">{info[1]}</span>
           </li>
